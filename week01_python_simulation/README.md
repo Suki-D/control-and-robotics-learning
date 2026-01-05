@@ -32,3 +32,13 @@ large step size.
 
 This experiment highlighted the importance of numerical stability
 in simulation-based analysis.
+
+### Day 3: Runge–Kutta (RK4) Integration
+
+Implemented a fourth-order Runge–Kutta (RK4) method and compared it
+with Euler integration under the same time step.
+
+Observed that RK4 provides significantly improved accuracy and stability,
+even with relatively large time steps, highlighting its importance in
+engineering simulations.
+
