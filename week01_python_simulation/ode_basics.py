@@ -1,3 +1,11 @@
+"""
+ODE Basics
+- Forward Euler
+- RK4
+- Comparison with analytical solution
+- Time-step sensitivity and stability
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -74,12 +82,47 @@ T = 5.0
 time_euler, traj_euler = euler_simulation(x0 = 1.0, dt = dt, T = T)
 time_rk4, traj_rk4 = rk4_simulation(x0 = 1.0, dt = dt, T = T)
 
+x_exact = np.exp(-time_euler) # solution: x(t) = e^(-t)
+
 plt.figure()
 plt.plot(time_euler, traj_euler, label = "Euler")
 plt.plot(time_rk4, traj_rk4, label = "RK4")
+plt.plot(time_euler, x_exact, 'k--', label="Exact")
 plt.xlabel("Time (s)")
 plt.ylabel("State x")
 plt.title("Euler vs RK4 Simulation")
+plt.legend()
+plt.grid()
+plt.show()
+
+# Calculation error = |x(numerical) - x(exact)|
+error_euler = np.abs(np.array(traj_euler) - x_exact)
+error_rk4 = np.abs(np.array(traj_rk4) - x_exact)
+
+plt.figure()
+plt.plot(time_euler, error_euler, label="Euler Error")
+plt.plot(time_euler, error_rk4, label="RK4 Error")
+plt.yscale("log")
+plt.xlabel("Time (s)")
+plt.ylabel("Absolute Error")
+plt.legend()
+plt.grid()
+plt.show()
+
+# Experiments with different dt values (stability experiments)
+dt_list = [0.5, 1.0, 1.5, 2.1]
+T = 5.0
+
+plt.figure()
+
+for dt in dt_list:
+    time, traj_euler = euler_simulation(x0=1.0, dt=dt, T=T)
+    plt.plot(time, traj_euler, label=f"Euler dt={dt}")
+
+plt.plot(time_euler, x_exact, 'k--', label="Exact")
+plt.xlabel("Time (s)")
+plt.ylabel("State x")
+plt.title("Euler Stability vs Time Step")
 plt.legend()
 plt.grid()
 plt.show()

@@ -42,3 +42,14 @@ Observed that RK4 provides significantly improved accuracy and stability,
 even with relatively large time steps, highlighting its importance in
 engineering simulations.
 
+### Day 4: Error Analysis and Time-Step Sensitivity
+
+Compared numerical solutions against the analytical solution
+x(t) = exp(-t) to quantify integration error.
+
+Plotted absolute error on a logarithmic scale and observed that
+RK4 maintains significantly lower error than Euler over time.
+
+Additionally explored how different time step sizes affect
+numerical behavior, reinforcing that numerical instability can
+arise from the integration method rather than the underlying system.
