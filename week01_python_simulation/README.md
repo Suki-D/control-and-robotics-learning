@@ -76,3 +76,15 @@ simulated the closed-loop system.
 Observed significantly faster convergence and reduced oscillations
 compared to the uncontrolled system, demonstrating the effect of
 feedback control.
+
+### Day 7: Closed-Loop Behavior and Stability Intuition
+
+Using the mass–spring–damper model with PD control developed in Days 5–6,
+this day focused on understanding how control gains shape closed-loop behavior.
+
+By varying proportional and derivative gains independently, different dynamic
+responses such as oscillatory, overdamped, and near-critically damped behaviors
+were observed.
+
+Developed physical intuition for how control parameters influence system
+responsiveness and stability, beyond numerical integration effects.
