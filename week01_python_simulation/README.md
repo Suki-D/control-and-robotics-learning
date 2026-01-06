@@ -64,3 +64,15 @@ oscillatory behavior with gradual energy decay due to damping.
 
 This experiment connected physical system dynamics with the
 state-space representation commonly used in control and robotics.
+
+### Day 6: Adding Control Input (PD Control)
+
+Extended the mass–spring–damper system by introducing an external
+control input representing applied force.
+
+Implemented a simple proportional–derivative (PD) controller and
+simulated the closed-loop system.
+
+Observed significantly faster convergence and reduced oscillations
+compared to the uncontrolled system, demonstrating the effect of
+feedback control.
