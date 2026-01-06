@@ -53,3 +53,14 @@ RK4 maintains significantly lower error than Euler over time.
 Additionally explored how different time step sizes affect
 numerical behavior, reinforcing that numerical instability can
 arise from the integration method rather than the underlying system.
+
+### Day 5: Second-Order Mass–Spring System
+
+Implemented a second-order mass–spring–damper system and reformulated
+it as a first-order state-space model.
+
+Simulated the system using numerical integration and observed
+oscillatory behavior with gradual energy decay due to damping.
+
+This experiment connected physical system dynamics with the
+state-space representation commonly used in control and robotics.
