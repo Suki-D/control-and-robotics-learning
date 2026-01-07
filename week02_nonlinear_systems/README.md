@@ -21,3 +21,24 @@ under small and large initial angles.
 Observed that linearization provides an accurate model near equilibrium
 but breaks down for large-angle motion, highlighting the importance of
 model validity and the risks of model mismatch in control design.
+
+### Day 3: Linear Control on a Nonlinear System
+
+Designed a PD controller based on a linearized pendulum model and applied
+it to the full nonlinear dynamics.
+
+Interestingly, when the PD gains were increased to achieve near-critical 
+damping in the linearized model, the performance difference between small 
+and large initial angles became less pronounced.
+This occurs because strong linear damping can dominate the nonlinear dynamics 
+of a naturally stable pendulum, effectively masking the limitations of linear 
+control in an idealized simulation without actuator saturation or model 
+uncertainty.
+
+To better reflect realistic control constraints, actuator saturation was then 
+introduced by limiting the control input. With this modification, the small-angle 
+response remained well-behaved, while the large-angle case exhibited noticeable 
+oscillations and slower convergence. This behavior is more consistent with the 
+expected degradation of linear control performance away from the linearization 
+point, as input saturation prevents the controller from fully compensating for 
+large deviations and allows nonlinear dynamics to play a more significant role.
