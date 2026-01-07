@@ -42,3 +42,16 @@ oscillations and slower convergence. This behavior is more consistent with the
 expected degradation of linear control performance away from the linearization 
 point, as input saturation prevents the controller from fully compensating for 
 large deviations and allows nonlinear dynamics to play a more significant role.
+
+### Day 4: Tracking Control on a Nonlinear Pendulum
+
+Extended the PD controller from regulation to trajectory tracking by
+introducing a time-varying reference angle.
+
+Demonstrated that a controller designed only for stabilization fails
+to track non-zero references, even though the system remains stable.
+
+By reformulating the PD controller in terms of tracking error and
+reference velocity, the pendulum was able to follow a sinusoidal
+trajectory with bounded error, revealing the additional challenges
+introduced by tracking control compared to point stabilization.

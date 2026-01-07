@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 g = 9.81
 l = 1.0
 
-def pendulum_nonlinear_dynamics(state, u = 0.0):
+def pendulum_nonlinear_dynamics(state, u):
     theta, omega = state
     dtheta = omega
     domega = - (g / l) * np.sin(theta) + u
