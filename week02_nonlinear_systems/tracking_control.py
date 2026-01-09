@@ -162,3 +162,42 @@ plt.title("Tracking Error vs Reference Frequency")
 plt.legend()
 plt.grid()
 plt.show()
+
+# Day 6: Quantify tracking error vs frequency
+frequencies = np.linspace(0.2, 8.0, 20)
+error_rms = []
+
+for w in frequencies:
+    time, traj, ref = rk4_control_simulation(
+        x0=x0, dt=dt, T=T, Kp=Kp, Kd=Kd, w=w)
+
+    error = traj[:, 0] - ref
+    rms = np.sqrt(np.mean(error**2))
+    error_rms.append(rms)
+
+plt.figure(figsize=(8,5))
+plt.plot(frequencies, error_rms, marker='o')
+plt.xlabel("Reference frequency ω (rad/s)")
+plt.ylabel("RMS tracking error (rad)")
+plt.title("Tracking Error vs Reference Frequency")
+plt.grid()
+plt.show()
+
+# Amplitude of reference vs Amplitude of actuall
+amp_ratio = []
+
+for w in frequencies:
+    time, traj, ref = rk4_control_simulation(
+        x0=x0, dt=dt, T=T, Kp=Kp, Kd=Kd, w=w)
+
+    amp_theta = np.max(np.abs(traj[:, 0]))
+    amp_ref = np.max(np.abs(ref))
+    amp_ratio.append(amp_theta / amp_ref)
+
+plt.figure(figsize=(8,5))
+plt.plot(frequencies, amp_ratio, marker='o')
+plt.xlabel("Reference frequency ω (rad/s)")
+plt.ylabel("Amplitude ratio |θ| / |θ_ref|")
+plt.title("Closed-loop Frequency Response (Empirical)")
+plt.grid()
+plt.show()

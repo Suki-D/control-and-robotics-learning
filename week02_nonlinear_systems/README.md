@@ -1,3 +1,25 @@
+# Week 2: # Week 1: Python Simulation of Dynamic Systems
+
+## Focus:
+- Nonlinear dynamic systems
+- Feedback control
+- Reference tracking
+- Feedforward compensation
+- Frequency-domain intuition in time-domain simulation
+
+## Goals:
+- Apply feedback control to nonlinear systems
+- Extend regulation control to trajectory tracking
+- Understand steady-state tracking error and its causes
+- Study how reference frequency affects tracking performance
+- Build intuition for control bandwidth and model-based compensation
+
+## Tools:
+- Python
+- NumPy
+- Matplotlib
+
+## Learning Progression
 ### Day 1: Nonlinear Pendulum Dynamics
 
 Implemented the full nonlinear pendulum model without small-angle
@@ -80,3 +102,37 @@ added to the controller. This modification removed the steady-state bias caused 
 allowing the PD controller to focus solely on correcting dynamic tracking errors. After this 
 change, the system behavior aligned with intuition: low-frequency references were tracked 
 accurately, while tracking performance degraded as the reference frequency increased.
+
+### Day 6: Closed-Loop Bandwidth and Frequency Limitations
+
+With gravity feedforward included, the PD tracking controller exhibits
+good performance for low-frequency reference trajectories.
+
+In this experiment, the reference frequency was systematically varied
+to examine the fundamental frequency limitations of the closed-loop
+system.
+
+As the reference frequency increased, tracking error increased despite
+unchanged controller structure and gains. This behavior reflects the
+finite bandwidth of the closed-loop system: beyond a certain frequency,
+the system cannot respond quickly enough to follow the reference.
+
+At high frequencies, the actual pendulum motion exhibited reduced
+amplitude compared to the reference. While this can appear as a smaller
+tracking error in the time domain, it is in fact a result of attenuation
+rather than successful tracking.
+
+This experiment reinforced the concept of closed-loop bandwidth and
+highlighted the importance of interpreting tracking error in the
+context of system dynamics rather than time-domain appearance alone.
+
+### Future Work
+Possible extensions beyond Week 2 include:
+- Adding actuator saturation to study realistic control constraints
+- Introducing model mismatch or disturbances to test robustness
+- Implementing feedback linearization for nonlinear systems
+- Comparing PD control with PID or state feedback
+- Extending tracking control to multi-link or underactuated systems
+
+These directions naturally lead toward modern nonlinear and optimal
+control methods.

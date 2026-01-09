@@ -1,20 +1,22 @@
 # Week 1: Python Simulation of Dynamic Systems
 
-Focus:
+## Focus:
 - Ordinary Differential Equations (ODEs)
 - Numerical integration
 - Time-domain simulation
 
-Goals:
+## Goals:
 - Translate mathematical models into code
 - Observe how system states evolve over time
 - Build intuition for dynamic behavior
 
-Tools:
+## Tools:
 - Python
 - NumPy
 - Matplotlib
 
+
+## Learning Progression
 ### Day 1: First ODE Simulation
 
 Implemented a simple first-order ODE dx/dt = -x and simulated it
