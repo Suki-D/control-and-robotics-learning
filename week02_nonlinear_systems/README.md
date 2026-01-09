@@ -55,3 +55,28 @@ By reformulating the PD controller in terms of tracking error and
 reference velocity, the pendulum was able to follow a sinusoidal
 trajectory with bounded error, revealing the additional challenges
 introduced by tracking control compared to point stabilization.
+
+### Day 5: Reference Tracking on a Nonlinear Pendulum
+
+In this experiment, a PD tracking controller was applied to a nonlinear 
+pendulum to follow a sinusoidal reference trajectory with different frequencies. 
+The initial expectation was that lower reference frequencies would lead to smaller 
+tracking errors, since slower trajectories are generally easier to follow.
+
+However, the simulation results showed the opposite trend: the tracking error for 
+low-frequency references remained relatively large, while higher-frequency references 
+exhibited smaller error amplitudes. This behavior was unexpected and suggested that factors 
+other than tracking dynamics were dominating the system response.
+
+The discrepancy was caused by the absence of gravity compensation in the control law. 
+Without a feedforward term, the PD controller had to rely on a persistent tracking error 
+to generate sufficient torque to counteract gravity when the reference angle was nonzero. 
+As a result, low-frequency references effectively behaved like slowly varying equilibrium 
+points, leading to quasi-static steady-state errors that did not diminish with decreasing 
+frequency.
+
+To address this issue, a gravity feedforward term based on the reference trajectory was 
+added to the controller. This modification removed the steady-state bias caused by gravity, 
+allowing the PD controller to focus solely on correcting dynamic tracking errors. After this 
+change, the system behavior aligned with intuition: low-frequency references were tracked 
+accurately, while tracking performance degraded as the reference frequency increased.
