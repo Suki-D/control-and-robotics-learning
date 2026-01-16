@@ -1,4 +1,4 @@
-# Week 2: # Week 1: Python Simulation of Dynamic Systems
+# Week 2: Feedback and Tracking Control of a Nonlinear Pendulum
 
 ## Focus:
 - Nonlinear dynamic systems
